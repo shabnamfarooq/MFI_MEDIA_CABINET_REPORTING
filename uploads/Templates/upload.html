@@ -4,17 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Report Comparison</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .btn-upload {
+            font-weight: bold;
+            width: 150px; /* Adjust button width as needed */
+            margin: 0 auto; /* Center the button */
+            display: block; /* Make it a block element */
+        }
+    </style>
 </head>
 <body>
-    <h1>Upload Member List and Daily Report</h1>
-    <form action="/upload" method="post" enctype="multipart/form-data">
-        <label for="members">Member List:</label>
-        <input type="file" id="members" name="members" accept=".xlsx" required>
-        <br><br>
-        <label for="report">Daily Report:</label>
-        <input type="file" id="report" name="report" accept=".xlsx" required>
-        <br><br>
-        <input type="submit" value="Upload">
-    </form>
+    <div class="container mt-5">
+        <h1 class="mb-4">Upload Member List and Daily Report</h1>
+        <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="members">Member List:</label>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="members" name="members" accept=".xlsx" required>
+                    <label class="custom-file-label" for="members">Choose file</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="report">Daily Report:</label>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="report" name="report" accept=".xlsx" required>
+                    <label class="custom-file-label" for="report">Choose file</label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-upload">Upload</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and jQuery (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Display selected file names in the form
+        document.querySelectorAll('.custom-file-input').forEach(function(input) {
+            input.addEventListener('change', function(event) {
+                var fileName = event.target.files[0].name;
+                var label = input.nextElementSibling;
+                label.innerHTML = fileName;
+            });
+        });
+    </script>
 </body>
 </html>
