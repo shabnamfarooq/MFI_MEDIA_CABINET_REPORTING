@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Comparison</title>
+</head>
+<body>
+    <h1>Upload Member List and Daily Report</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="members">Member List:</label>
+        <input type="file" id="members" name="members" accept=".xlsx" required>
+        <br><br>
+        <label for="report">Daily Report:</label>
+        <input type="file" id="report" name="report" accept=".xlsx" required>
+        <br><br>
+        <input type="submit" value="Upload">
+    </form>
+</body>
+</html>
