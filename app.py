@@ -4,7 +4,7 @@ import os
 import openpyxl
 import logging
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='Templates')
 app.secret_key = 'supersecretkey'  # Needed for flash messages
 
 UPLOAD_FOLDER = 'uploads'
