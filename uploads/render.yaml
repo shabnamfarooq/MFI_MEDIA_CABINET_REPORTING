@@ -3,5 +3,11 @@ services:
     name: app
     env: python
     plan: free
-    buildCommand: ""
-    startCommand: gunicorn app.wsgi
+    region: oregon
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: UPLOAD_FOLDER
+        value: 'uploads'
+      - key: RESULT_FOLDER
+        value: 'results'

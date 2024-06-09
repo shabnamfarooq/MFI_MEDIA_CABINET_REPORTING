@@ -15,7 +15,6 @@ if not os.path.exists(UPLOAD_FOLDER):
 if not os.path.exists(RESULT_FOLDER):
     os.makedirs(RESULT_FOLDER)
 
-
 def compare_reports(members_file, report_file, output_file):
     members_df = pd.read_excel(members_file, sheet_name='Members')
     reports_df = pd.read_excel(report_file, sheet_name='Reports')
@@ -28,11 +27,9 @@ def compare_reports(members_file, report_file, output_file):
 
     members_df.to_excel(output_file, index=False)
 
-
 @app.route('/')
 def upload_form():
     return render_template('upload.html')
-
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
@@ -56,6 +53,6 @@ def upload_file():
 
     return send_file(result_path, as_attachment=True)
 
-
 if __name__ == "__main__":
-    app.run(debug=True)
+    from waitress import serve
+    serve(app, host='0.0.0.0', port=8000)
