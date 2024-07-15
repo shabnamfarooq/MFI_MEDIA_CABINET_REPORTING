@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Member</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-image: url("/static/image.jpg"); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Ensures the background image stays fixed while scrolling */
+            color: white; /* Sets default text color to white */
+            padding-top: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+        .btn-primary,
+        .btn-secondary {
+            color: white; /* Sets button text color to white */
+        }
+    </style>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h4 class="card-title text-center">Edit Member</h4>
+        <form method="post">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" value="{{ member[1] }}" required>
+            </div>
+            <div class="form-group">
+                <label for="co_leader">Co-Leader:</label>
+                <input type="text" class="form-control" id="co_leader" name="co_leader" value="{{ member[2] }}" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Update Member</button>
+            <button type="button" class="btn btn-secondary" onclick="goBack()">Back</button>
+            <a href="/" class="btn btn-primary">Home</a>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS (Optional: Only if you need Bootstrap JS functionality like modals or tooltips) -->
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script> -->
+</body>
+</html>
